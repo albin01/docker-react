@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t alban/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run alban/docker-react npm run test -- --coverage
